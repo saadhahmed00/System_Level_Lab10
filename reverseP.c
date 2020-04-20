@@ -4,16 +4,17 @@
 #define N 50
 
 int main(){
-	int arr[N], i =0; 
+	int arr[N];
+	int *p = arr; 
 	char ch;  
 
 	printf("Enter a message: ");
 
 	/* Put code here to get input from user by using getchar() */
 
-	while((i<N)&&((ch=getchar()) != '\n')){
-			*(arr + i) = ch;
-			i++;
+	while((p-arr <N)&&((ch=getchar()) != '\n')){
+			*p = ch;
+			p++;
 
 	}
 	
@@ -22,9 +23,10 @@ int main(){
 
 	/* Put code here to print out the reversal by using putchar()*/ 
 
-	while(i>=0){
-		putchar(*(arr + i-1));
-		i--;
+	p--;
+	while(p-arr >=0){
+		putchar(*p);
+		p--;
 	}
 
 	printf("\n"); 
